@@ -1,0 +1,17 @@
+.hor-banner{
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  background-color: #f0fcff;
+  &__box{
+    @include display-flex(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    position: relative;
+    float: left;
+    width: 100%;
+
+  }
+}

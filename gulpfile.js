@@ -45,61 +45,6 @@ gulp.task('css-libs', function () { // Создаем таск css-libs
         })); // Обновляем CSS на странице при изменении
 });
 
-gulp.task('png-sprite', function () {// PNG Sprites
-    var spriteData =
-        gulp.src('app/img/sprites/*.*')// путь, откуда берем картинки для спрайта
-            .pipe(spritesmith({
-                imgName: 'sprite.png',//имя генерируемой картинки
-                cssName: '_png-sprite.sass',//имя css файла, который получится на выходе
-                cssFormat: 'sass',//формат css файла
-                algorithm: 'binary-tree',//способ сортировки изображений
-                cssTemplate: 'sass.template.mustache',//функция или путь до mustache шаблона, дающие возможность настроить CSS-файл на выходе
-                cssVarMap: function (sprite) {//цикл, настраивающий названия CSS переменных
-                    sprite.name = 's-' + sprite.name
-                }
-            }));
-
-    spriteData.img.pipe(gulp.dest('img/sprites/'));// путь, куда сохраняем картинку
-    spriteData.css.pipe(gulp.dest('app/sass/libs/'));// путь, куда сохраняем стили
-});
-
-// SVG Sprites
-/*gulp.task('svg-sprite', function () {
-
-    var svgs = gulp
-        .src(path.src.svgSprite)
-        .pipe(rename({prefix: 'svg-icon-'}))
-        .pipe(svgmin())
-        .pipe(svgstore({ inlineSvg: true }));
-
-    function fileContents (filePath, file) {
-        return file.contents.toString();
-    }
-
-    return gulp
-        .src('src/template/svg.html')
-        .pipe(inject(svgs, { transform: fileContents }))
-        .pipe(gulp.dest('src/template'));
-
-});*/
-
-/*-- таск подключается по желанию разработчика ---*/
-/*gulp.task('js-libs', function () {
-    return gulp.src([ // Берем все необходимые библиотеки
-        'app/libs/js-libs/jquery.jscrollpane.min.js',
-        'app/libs/js-libs/jquery.mousewheel.js',
-        'app/libs/js-libs/bootstrap.min.js',
-        'app/libs/js-libs/validation.js',
-        'app/libs/js-libs/fotorama.js',
-        'app/libs/js-libs/lightbox.min.js',
-        'app/libs/js-libs/owl.carousel.min.js',
-        'app/libs/js-libs/slick.min.js'
-    ])
-        .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
-        .pipe(uglify()) // Сжимаем JS файл
-        .pipe(gulp.dest('js')); // Выгружаем в папку app/js
-});*/
-
 gulp.task('sass', function () { // Создаем таск Sass
     var processors = [// подключаем постпроцессоры в массиве
         assets,
@@ -108,16 +53,7 @@ gulp.task('sass', function () { // Создаем таск Sass
         fixes,
         autoprefixer(['last 5 versions', '> 5%', 'ie 8', 'ie 7', 'ie 9', 'safari 5', 'opera 12.1', 'ios 6', 'android 4'], {
             cascade: true
-        }),
-        /*pxtorem({
-            rootValue: 14,
-            replace: false
-        }),
-        pxtoem({
-            rootValue: 14,
-            replace: false
-        }),*/
-        /*focus,*/
+        }),        
         sorting(),
         stylefmt,
         cssnano
