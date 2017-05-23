@@ -1,0 +1,54 @@
+.hor-social{
+  display: block;
+  position: relative;
+  float: left;
+  width: 100%;
+  background-color: #f0fcff;
+  h3{
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 31px;
+    margin-bottom: 9px;
+    text-align: center;
+    color: #343434;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  &__links{
+    @include display-flex(flex);
+    @include flex-wrap(wrap);
+    @include flex-direction(row);
+    @include justify-content(center);
+    position: relative;
+    float: left;
+    width: 300px;
+    margin-bottom: 25px;
+    margin-left: calc(50% - (300px/2));
+    a{
+      @include display-flex(flex);
+      @include flex-wrap(wrap);
+      @include flex-direction(row);
+      @include justify-content(center);
+      align-items: center;
+      position: relative;
+      float: left;
+      size: 32px;
+      margin: 0 10px;
+      border-radius: 50%;
+      overflow: hidden;
+      background-color: #2579bf;
+      color: #fff;
+      font-size: 21px;
+      text-align: center;
+      @include transition(0.4s);
+      &:hover{
+        @include transition(0.4s);
+        box-shadow: 0 4px 22px rgba(0,0,0,.6);
+        background-color: #081e4b;
+      }
+    }
+  }
+}
