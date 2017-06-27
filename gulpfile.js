@@ -8,12 +8,12 @@ var gulp = require('gulp'), // Подключаем Gulp
     imagemin = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
     pngquant = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
     spritesmith = require('gulp.spritesmith'), // Подключаем библиотеку для создания png-спрайтов
-    svgstore = require('gulp-svgstore'),//// Подключаем библиотеку для объединения SVG в один файл 
+    svgstore = require('gulp-svgstore'),//// Подключаем библиотеку для объединения SVG в один файл
     svgmin = require('gulp-svgmin'),//Подключаем библиотеку для минификации SVG
     cache = require('gulp-cache'), // Подключаем библиотеку кеширования
     extender = require('gulp-html-extend'),//Подключаем бибилиотеку для склейки html-файлов
     sourcemaps = require('gulp-sourcemaps'),//Подключаем плагин, записывающий карту источника в исходный файл
-    rimraf = require('rimraf'),//Очищает указанные исходники  
+    rimraf = require('rimraf'),//Очищает указанные исходники
     plumber = require('gulp-plumber');//Подключаем плагин, который не останавливает задачи от остановки во время их выполнения при возникновении ошибки
 
 var postcss = require('gulp-postcss'),//Блиотека-парсер стилей для работы с postcss-плагинами
@@ -48,12 +48,12 @@ gulp.task('css-libs', function () { // Создаем таск css-libs
 gulp.task('sass', function () { // Создаем таск Sass
     var processors = [// подключаем постпроцессоры в массиве
         assets,
-        short, 
+        short,
         fontmagic,
         fixes,
         autoprefixer(['last 5 versions', '> 5%', 'ie 8', 'ie 7', 'ie 9', 'safari 5', 'opera 12.1', 'ios 6', 'android 4'], {
             cascade: true
-        }),        
+        }),
         sorting(),
         stylefmt,
         cssnano
@@ -78,7 +78,7 @@ gulp.task('sass', function () { // Создаем таск Sass
 gulp.task('browser-sync', function () { // Создаем таск browser-sync
     browserSync({ // Выполняем browserSync
         proxy: {
-            target: '' // Директория для сервера - app
+            target: 'galka' // Директория для сервера - app
         },
         ghostMode: {
             clicks: true,
@@ -119,7 +119,7 @@ gulp.task('extend-blocks', function () {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('watch', ['compress', 'extend-pages', 'css-libs', 'img', 'sass'], function () {
+gulp.task('watch', ['compress', 'extend-pages', 'css-libs', 'img', 'sass', 'browser-sync'], function () {
     gulp.watch('app/libs/**/*', ['css-libs']); // Наблюдение за папкой libs
     gulp.watch('app/img/**/*', ['img']);// Наблюдение за папкой img
     gulp.watch('app/sass/**/*.scss', ['sass']); // Наблюдение за sass файлами в папке sass
