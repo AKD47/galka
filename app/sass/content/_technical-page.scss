@@ -1,0 +1,65 @@
+.technical-page{
+  width: 100%;
+  float: left;
+  position: relative;
+  background-color: #f0fcff;
+  text-align: center;
+}
+
+.technical-page__wrap{
+  margin: 40px auto;
+  background-color: #fff;
+  width: 42%;
+  display: inline-block;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 50px;
+  box-sizing: border-box;
+}
+
+
+.technical-page__wrap_left{
+  width: 100%;
+  float: left;
+  position: relative;
+  text-align: center;
+  img{
+    width: 260px;
+    height: 200px;
+    float: none;
+
+  }
+}
+
+
+.technical-page__wrap_right{
+  width: 100%;
+  float: left;
+  position: relative;
+  h4{
+    color: #f60;
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0;
+    margin-top: 5px;
+  }
+  p{
+    width: 100%;
+    float: left;
+    margin: 0;
+    color: #343434;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+  }
+  a{
+    float: none;
+    display: inline-block;
+  }
+  .back-btn{
+    background-color: #f60;
+    color: #fff;
+  }
+}
