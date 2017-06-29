@@ -33,12 +33,14 @@ $(document).ready(function () {
      asNavFor: '.slider-nav'
     });
     $('.slider-nav').slick({
-     slidesToShow: 3,
-     slidesToScroll: 1,
-     asNavFor: '.slider-for',
-     dots: true,
-     centerMode: true,
-     focusOnSelect: true
+      slidesToShow: 6,
+      centerPadding: false,
+      slidesToScroll: 1,
+      asNavFor: '.slider-for',
+      dots: false,
+      arrows: false,
+      centerMode: true,
+      focusOnSelect: true
     });
 
     /*prod slider*/

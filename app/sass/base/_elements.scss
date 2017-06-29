@@ -7,3 +7,19 @@ h1{
   margin-bottom: 51px;
   text-align: center;
 }
+
+h3{
+  width: 100%;
+  float: left;
+  text-align: left;
+  font-weight: 600;
+  color: #7e7e7e;
+  font-size: 14px;
+  text-transform: uppercase;
+  span{
+    color: #f60;
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
