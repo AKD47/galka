@@ -23,3 +23,57 @@ h3{
     margin-right: 5px;
   }
 }
+
+
+.breadcrumbs{
+  width: 100%;
+  float: left;
+  position: relative;
+  padding: 15px 0 15px;
+  box-sizing: border-box;
+  background-color: #f0fcff;
+}
+
+.breadcrumbs__list {
+		list-style-type: none;
+		float: left;
+		padding: 0;
+    margin: 0;
+    top: 4px;
+    position: relative;
+		li {
+			display: inline-block;
+			position: relative;
+      font-size: 12px;
+      // line-height: 15px;
+			color: #757575;
+		  font-weight: 400;
+      margin: 0 10px 0 12px;
+			a {
+			  color: #757575;
+        font-weight: 400;
+			}
+			&:first-of-type {
+				margin-left: 0;
+			}
+
+			&:after {
+				content: "";
+        background-image: url("../img/icons/shevron.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 7px;
+        height: 10px;
+				position: absolute;
+				right: -18px;
+				bottom: 0;
+			}
+			&:last-of-type {
+        color: #7e7e7e;
+				&:after, &:before {
+					content: none;
+				}
+			}
+
+		}
+	}

@@ -39,6 +39,7 @@
     width: 100%;
     float: left;
     position: relative;
+    margin-top: 20px;
     .slick-list.draggable{
       padding: 0;
     }
@@ -54,15 +55,44 @@
       }
     }
 
-    button.slick-prev.slick-arrow, .slick-next{
+    button.slick-prev.slick-arrow{
       width: 13px;
       height: 14px;
-      &:before{
+      float: left;
+      text-indent: -9999px;
+      cursor: pointer;
         width: 0;
         height: 0;
         border-top: 7px solid transparent;
-        border-right: 13px solid red;
+        border-right: 13px solid #cfcfcf;
         border-bottom: 7px solid transparent;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: transparent;
+        box-shadow: none;
+        border-left: none;
+        &:hover{
+          border-right: 13px solid #f60;
+        }
+    }
+    button.slick-next.slick-arrow{
+      width: 13px;
+      text-indent: -9999px;
+      cursor: pointer;
+      right: 0;
+      position: absolute;
+      width: 0;
+    	height: 0;
+    	border-top: 7px solid transparent;
+    	border-left: 13px solid #cfcfcf;
+    	border-bottom: 7px solid transparent;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: transparent;
+      box-shadow: none;
+      border-left: none;
+      &:hover{
+        border-right: 13px solid #f60;
       }
     }
   }
@@ -76,7 +106,7 @@
   float: left;
   height: 485px;
   background-color: #fff;
-  // padding-left: 100px;
+  padding-left: 100px;
   padding-right: 50px;
   box-sizing: border-box;
   position: relative;
@@ -120,9 +150,9 @@
   float: left;
   position: relative;
   position: absolute;
-  bottom: 0;
+  bottom: 15px;
   display: inline-block;
-  left: 0;
+  left: 100px;
   a{
     float: left;
     width: 130px;
@@ -191,7 +221,7 @@
 .product__about{
   width: 95%;
   float: none;
-  margin: 0 auto;
+  margin: 20px auto 0;
   display: inline-block;
   position: relative;
   background-color: #fff;
