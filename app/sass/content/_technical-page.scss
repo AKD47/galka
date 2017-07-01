@@ -14,6 +14,13 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   padding: 50px;
   box-sizing: border-box;
+  @include breakpoint(max-width 770px){
+    width: 70%;
+  }
+  @include breakpoint(max-width 670px){
+    width: 85%;
+    padding: 15px;
+  }
 }
 
 
@@ -61,5 +68,8 @@
   .back-btn{
     background-color: #f60;
     color: #fff;
+    @include breakpoint(max-width 670px){
+      margin-right: 30px;
+    }
   }
 }

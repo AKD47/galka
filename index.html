@@ -9,10 +9,12 @@
     <title>Galka.ru</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="css/libs.min.css" rel="stylesheet" type="text/css">
+    <link href="css/slick.css" rel="stylesheet" type="text/css">
     <link href="css/styles.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <!-- open .header -->
+
 <!-- end html_open.html-->
 
 <!-- start header.html-->
@@ -80,9 +82,7 @@
 
 </header>
 <!-- end header.html-->
-
-<!-- start horizontal-banner.html-->
-<section class="hor-banner">
+<section class="hor-banner hor-banner__white">
 
     <div class="container">
 
@@ -106,95 +106,129 @@
     </div>
 
 </section>
-<!-- end horizontal-banner.html-->
 
-<!-- start categories.html-->
-<section class="categories">
+<!-- start panel.html-->
+<section class="sells-panel">
+  <div class="container">
+    <div class="sells-panel__item">
+      <span class="car-icon"></span>
+      <p>Быстрая доставка</p>
+    </div>
+    <div class="sells-panel__item">
+      <span class="cash-icon"></span>
+      <p>Оплата картой / наложенным платежом</p>
+    </div>
+    <div class="sells-panel__item">
+      <span class="star-icon"></span>
+      <p>Гарантия и качество</p>
+    </div>
+  </div>
+</section>
+
+<!-- end panel.html-->
+
+<!-- start circle-categories.html-->
+<section class="circle-categories">
 
     <div class="container">
 
-        <h1>Galka.ru - всегда лучшее!</h1>
+        <h2>Товар по категориям</h2>
 
 
-        <div class="categories__box">
+        <div class="circle-categories__box">
 
-            <a href="#" class="categories__item">
+            <a href="#" class="circle-categories__item">
+                <p>Туризм</p>
+                <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-1.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
 
-                <span class="categories__item--img">
-                    <img src="img/cat-1.png" alt="">
-                </span>
 
-                <p>Товары для туризма</p>
-
-            </a>
-
-            <a href="#" class="categories__item">
-
-                 <span class="categories__item--img">
-                    <img src="img/cat-2.png" alt="">
-                </span>
-
-                <p>Товары телемагазинов</p>
 
             </a>
 
-            <a href="#" class="categories__item">
+            <a href="#" class="circle-categories__item">
+                  <p>Красота и здоровье</p>
+                 <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-2.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
+            </a>
 
-                 <span class="categories__item--img">
-                    <img src="img/cat-3.png" alt="">
-                </span>
+            <a href="#" class="circle-categories__item">
+                  <p>На дачу</p>
+                 <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-3.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
 
-                <p>Медицинская техника</p>
 
             </a>
 
-            <a href="#" class="categories__item">
-
-                 <span class="categories__item--img">
-                    <img src="img/cat-4.png" alt="">
-                </span>
-
-                <p>Товары для красоты</p>
-
-            </a>
-
-            <a href="#" class="categories__item">
-
-                 <span class="categories__item--img">
-                    <img src="img/cat-5.png" alt="">
-                </span>
-
-                <p>Товары для красоты</p>
+            <a href="#" class="circle-categories__item">
+                <p>Бытовая техника</p>
+                 <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-4.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
 
             </a>
 
-            <a href="#" class="categories__item">
+            <a href="#" class="circle-categories__item">
+                <p>Ноутбуки</p>
+                 <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-5.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
 
-                 <span class="categories__item--img">
-                    <img src="img/cat-6.png" alt="">
-                </span>
-
-                <p>Товары для детей</p>
-
-            </a>
-
-            <a href="#" class="categories__item">
-
-                 <span class="categories__item--img">
-                    <img src="img/cat-7.png" alt="">
-                </span>
-
-                <p>Подушки и одеяла</p>
 
             </a>
 
-            <a href="#" class="categories__item">
+            <a href="#" class="circle-categories__item">
+                  <p>Медтехника</p>
+                 <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-6.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
 
-                 <span class="categories__item--img">
-                    <img src="img/cat-8.png" alt="">
-                </span>
 
-                <p>Товары для дачи</p>
+
+            </a>
+
+            <a href="#" class="circle-categories__item">
+                <p>Домашний текстиль</p>
+                 <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-7.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
+
+
+            </a>
+
+            <a href="#" class="circle-categories__item">
+                  <p>Спорт и увлечения</p>
+                 <div class="circle-categories__item--img">
+                    <img src="img/cat/cat-8.png" alt="">
+                    <div class="hover-block">
+                      <span></span>
+                    </div>
+                </div>
+
 
             </a>
 
@@ -204,10 +238,9 @@
     </div>
 
 </section>
-<!-- end categories.html-->
 
-<!-- start horizontal-social.html-->
-<section class="hor-social">
+<!-- end circle-categories.html-->
+<section class="hor-social hor-social__white">
 
     <div class="container">
 
@@ -227,7 +260,6 @@
     </div>
 
 </section>
-<!-- end horizontal-social.html-->
 
 <!-- start footer.html-->
 <footer class="footer">
@@ -244,7 +276,7 @@
             <ul>
                 <li><a href="#">+7 (495) 123-23-23</a></li>
                 <li><a href="#">+7 (495) 456-56-56</a></li>
-                <li><a href="#">+7 (495) 789-89-89</a></li>                
+                <li><a href="#">+7 (495) 789-89-89</a></li>
             </ul>
 
             <a href="#">Перезвоните мне</a>
@@ -290,18 +322,20 @@
             </ul>
 
         </div>
-
+        <p>© 2017 Интернет-магазин Travelife. Все права защищены</p>
 
     </div>
 
 </footer>
+
 <!-- end footer.html-->
 
 <!-- start html_close.html-->
 <script src='js/jquery-2.1.3.min.js' type="text/javascript"></script>
 <script src='js/jquery-ui.min.js' type="text/javascript"></script>
-<script src="js/owl.carousel.min.js" type="text/javascript"></script>
+<script src="js/slick.min.js" type="text/javascript"></script>
 <script src="js/script.min.js" type="text/javascript"></script>
 </body>
 </html>
+
 <!-- end html_close.html-->

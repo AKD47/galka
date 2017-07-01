@@ -9,6 +9,14 @@
     float: left;
     width: 100%;
     border-bottom: 1px solid #cbcbcb;
+    @include breakpoint(max-width 670px){
+      float: left;
+      width: 100%;
+      margin: 5px 0;
+      padding: 0 10px;
+      @include box-sizing(border-box);
+
+    }
     &--links{
       display: block;
       position: relative;
@@ -22,6 +30,32 @@
         margin: 5px 0;
         padding: 0 10px;
         @include box-sizing(border-box);
+
+      }
+      &:first-of-type{
+        @include breakpoint(max-width 670px){
+          float: left;
+          width: 65%;
+          margin: 5px 0;
+          padding: 0 10px;
+          @include box-sizing(border-box);
+          a{
+            float: left;
+            width: auto;
+          }
+        }
+      }
+      &:last-of-type{
+        @include breakpoint(max-width 670px){
+          span{
+            display: none;
+          }
+          a{
+            float: left;
+            width: 32%;
+            margin-right: 4px;
+          }
+        }
       }
       > span{
         display: block;
@@ -64,7 +98,7 @@
       line-height: 22px;
       @include breakpoint(max-width 670px){
         float: left;
-        width: 100%;
+        width:35%;
         margin: 5px 0;
         padding: 0 10px;
         @include box-sizing(border-box);
