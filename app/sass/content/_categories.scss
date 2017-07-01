@@ -4,6 +4,9 @@
   float: left;
   width: 100%;
   background-color: #f0fcff;
+  @include breakpoint(max-width 670px){
+    background-color: #fff;
+  }
   &__box{
     @include display-flex(flex);
     @include flex-wrap(wrap);

@@ -41,6 +41,10 @@ h3{
   padding: 15px 0 15px;
   box-sizing: border-box;
   background-color: #f0fcff;
+  @include breakpoint(max-width 670px){
+    padding: 15px;
+    background-color: #fff;
+  }
 }
 
 .breadcrumbs__list {

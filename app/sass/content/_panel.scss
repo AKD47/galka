@@ -10,29 +10,23 @@
   float: left;
   width: 33%;
   position: relative;
-  border-top: 1px solid #989898;
-  border-bottom: 1px solid #989898;
-  &:before{
-    content: "";
-    background-image: url("../img/icons/before-arrow.png");
-    position: absolute;
-    left: 0;
-    width: 15px;
-    display: block;
-    height: 77px;
-    background-repeat: no-repeat;
-    background-size: contain;
+  background-image: url("../img/ar-fon.png");
+  width: 383px;
+  height: 77px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding: 10px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  @include breakpoint(max-width 770px){
+    width: 33.3%;
+    background-image: none;
+    padding: 5px;
   }
-  &:after{
-    content: "";
-    background-image: url("../img/icons/after-arrow.png");
-    position: absolute;
-    right: 0;
-    width: 15px;
-    display: block;
-    height: 77px;
-    background-repeat: no-repeat;
-    background-size: contain;
+  @include breakpoint(max-width 670px){
+    width: 100%;
+    background-image: none;
+    padding: 15px;
   }
   span{
     display: block;
@@ -49,9 +43,21 @@
     text-align: left;
     margin: 0;
     float: left;
-    width: 60%;
+    width: 61%;
     height: 52px;
     vertical-align: middle;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    align-items: center;
+    @include breakpoint(max-width 770px){
+        font-size: 13px;
+        width: 43%;
+    }
+    @include breakpoint(max-width 770px){
+      font-size: 17px;
+      width: 60%;
+    }
   }
 }
 
@@ -68,6 +74,6 @@
 }
 .star-icon{
   background-image: url("../img/icons/star-icon.png");
-  width: 63px;
-height: 60px;
+  width: 52px;
+height: 52px;
 }
