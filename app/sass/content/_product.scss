@@ -61,8 +61,11 @@
     button.slick-prev.slick-arrow{
       width: 13px;
       height: 14px;
-      float: left;
+      position: absolute;
+      left: -20px;
+      top: 37%;
       text-indent: -9999px;
+      outline: none;
       cursor: pointer;
         width: 0;
         height: 0;
@@ -79,11 +82,13 @@
         }
     }
     button.slick-next.slick-arrow{
+      outline: none;
       width: 13px;
       text-indent: -9999px;
       cursor: pointer;
-      right: 0;
       position: absolute;
+      right: -20px;
+      top: 37%;
       width: 0;
     	height: 0;
     	border-top: 7px solid transparent;
@@ -93,9 +98,9 @@
       box-sizing: border-box;
       background-color: transparent;
       box-shadow: none;
-      border-left: none;
+      border-right: none;
       &:hover{
-        border-right: 13px solid #f60;
+        border-left: 13px solid #f60;
       }
     }
   }
