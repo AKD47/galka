@@ -90,3 +90,47 @@ h3{
 
 		}
 	}
+
+
+.pagination{
+  width: 100%;
+  float: left;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  background-color: #f0fcff;
+  ul{
+    margin: 0 auto;
+    float: none;
+    padding: 0;
+    display: block;
+    width: 26%;
+    @include breakpoint(max-width 770px){
+      width: 50%;
+    }
+    @include breakpoint(max-width 670px){
+      width: 90%;
+    }
+    li{
+      size: 24px;
+      float: none;
+      margin: 0 2px;
+      list-style-type: none;
+      display: inline-block;
+      text-align: center;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      a{
+        color: #f60;
+        font-size: 15px;
+
+      }
+      &:first-of-type, &:last-of-type{
+        border: none;
+      }
+    }
+    li.active{
+      border: 1px solid #f60;
+    }
+  }
+}
