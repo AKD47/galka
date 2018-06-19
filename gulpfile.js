@@ -30,6 +30,7 @@ var postcss = require('gulp-postcss'),//Блиотека-парсер стиле
     fontmagic = require('postcss-font-magician'),
     fixes = require('postcss-fixes');
 
+/*css-libs*/
 gulp.task('css-libs', function () { // Создаем таск css-libs
     var processors = [
         cssnano
@@ -39,12 +40,11 @@ gulp.task('css-libs', function () { // Создаем таск css-libs
     ]) // Берем источник
         .pipe(postcss(processors))// сжымаем
         .pipe(concat('libs.min.css'))// объеденяем в файл
-        .pipe(gulp.dest('css')) // Выгружаем результата в папку app/css
-        .pipe(browserSync.reload({
-            stream: true
-        })); // Обновляем CSS на странице при изменении
+        .pipe(gulp.dest('./public/css')) // Выгружаем результата в папку app/css
+        .pipe(browserSync.stream({})); // Обновляем CSS на странице при изменении
 });
 
+/*sass*/
 gulp.task('sass', function () { // Создаем таск Sass
     var processors = [// подключаем постпроцессоры в массиве
         assets,
@@ -69,16 +69,15 @@ gulp.task('sass', function () { // Создаем таск Sass
         }))
         .pipe(sourcemaps.write('.', {sourceRoot: 'css-source'}))
         .pipe(plumber.stop())
-        .pipe(gulp.dest('css'))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
+        .pipe(gulp.dest('./public/css'))
+        .pipe(browserSync.stream({}));
 });
 
+/*browser-sync*/
 gulp.task('browser-sync', function () { // Создаем таск browser-sync
-    browserSync({ // Выполняем browserSync
-        proxy: {
-            target: 'galka' // Директория для сервера - app
+    browserSync.init({ // Выполняем browserSync
+        server: {
+            baseDir: './public' // Директория для сервера - app
         },
         ghostMode: {
             clicks: true,
@@ -89,6 +88,7 @@ gulp.task('browser-sync', function () { // Создаем таск browser-sync
     });
 });
 
+/*compress*/
 gulp.task('compress', ['clean'], function () {// Создаем таск compress
     return gulp.src('app/js/*.js')// Берем все необходимые библиотеки
         .pipe(plumber())
@@ -99,18 +99,12 @@ gulp.task('compress', ['clean'], function () {// Создаем таск compres
         }))
         .pipe(uglify()) // Сжимаем JS файл
         .pipe(plumber.stop())
-        .pipe(gulp.dest('js'));// Выгружаем в папку js
-
+        .pipe(gulp.dest('./public/js'));// Выгружаем в папку js
 });
 
+/*clean*/
 gulp.task("clean", function (cb) {
     rimraf('./js/script.min.js', cb);
-});
-
-gulp.task('extend-pages', function () {
-    gulp.src('./app/html/pages/*.html')
-        .pipe(extender({annotations: true, verbose: false})) // default options
-        .pipe(gulp.dest('./'))
 });
 
 gulp.task('extend-blocks', function () {
@@ -119,7 +113,14 @@ gulp.task('extend-blocks', function () {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('watch', ['compress', 'extend-pages', 'css-libs', 'img', 'sass', 'browser-sync'], function () {
+gulp.task('extend-pages', function () {
+    gulp.src('./app/html/pages/*.html')
+        .pipe(extender({annotations: true, verbose: false})) // default options
+        .pipe(gulp.dest('./public'))
+        .pipe(browserSync.stream({}));
+});
+
+gulp.task('watch', ['compress', 'extend-pages', 'css-libs', 'img', 'sass'], function () {
     gulp.watch('app/libs/**/*', ['css-libs']); // Наблюдение за папкой libs
     gulp.watch('app/img/**/*', ['img']);// Наблюдение за папкой img
     gulp.watch('app/sass/**/*.scss', ['sass']); // Наблюдение за sass файлами в папке sass
@@ -127,7 +128,7 @@ gulp.task('watch', ['compress', 'extend-pages', 'css-libs', 'img', 'sass', 'brow
     gulp.watch('app/js/**/*.js', ['compress']); // Наблюдение за js-файлами
 });
 
-
+/*img */
 gulp.task('img', function () {
     return gulp.src('app/img/**/*')
         .pipe(cache(imagemin({
@@ -138,7 +139,7 @@ gulp.task('img', function () {
             }],
             use: [pngquant()]
         })))
-        .pipe(gulp.dest('img'))
+        .pipe(gulp.dest('./public/img'))
         .pipe(browserSync.reload({
             stream: true
         }));
@@ -148,7 +149,7 @@ gulp.task('clear', function (callback) {
     return cache.clearAll();
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['watch', 'browser-sync']);
 
 /*
- npm i gulp gulp-sass browser-sync gulp-concat gulp-uglifyjs gulp-rename del gulp-imagemin imagemin-pngquant gulp.spritesmith gulp-svgstore gulp-svgmin gulp-cache gulp-html-extend gulp-sourcemaps rimraf gulp-plumber gulp-postcss autoprefixer cssnano postcss-pxtorem postcss-px-to-em postcss-short stylefmt postcss-assets postcss-short-spacing postcss-focus postcss-sorting postcss-font-magician postcss-fixes stylelint-config-standard --save-dev*/
+npm i gulp gulp-sass browser-sync gulp-concat gulp-uglifyjs gulp-rename del gulp-imagemin imagemin-pngquant gulp.spritesmith gulp-svgstore gulp-svgmin gulp-cache gulp-html-extend gulp-sourcemaps rimraf gulp-plumber gulp-postcss autoprefixer cssnano postcss-pxtorem postcss-px-to-em postcss-short stylefmt postcss-assets postcss-short-spacing postcss-focus postcss-sorting postcss-font-magician postcss-fixes stylelint-config-standard --save-dev*/
